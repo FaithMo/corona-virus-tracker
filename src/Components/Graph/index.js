@@ -15,33 +15,33 @@ const useStyles = makeStyles((theme) =>({
         border: '1px solid darkorange',
         borderRadius: '40px',
     },
-    charts: {
-        width: '30em',
-        height: '20em',
+    charts:{
+        width: '4em',
     },
-    chart1: {
-        marginLeft: '0em',
+    chartsFirstThree: {
+        // width: '4em',
+        // height: '5em',
         display: 'flex',
+        flexDirection: "row",
+        // justifyContent: 'space-between',
+        '& > *': {
+            margin: theme.spacing(6),
+            width: theme.spacing(20),
+            height: theme.spacing(24),
+        },
     },
-    chart2: {
-        marginLeft: '35em',
+    chartsSecondThree: {
+        // width: '4em',
+        // height: '5em',
         display: 'flex',
-        top: '0px'
-        // marginBottom: '0em',
-     },
-    chart3: {
-        marginLeft: '70em',
+        flexDirection: "row",
+        // justifyContent: 'space-between',
+        '& > *': {
+            margin: theme.spacing(6),
+            width: theme.spacing(20),
+            height: theme.spacing(24),
+        },
     },
-    // chart1: {
-    //     marginLeft: '0em',
-    // },
-    // chart1: {
-    //     marginLeft: '0em',
-    // },
-    // chart1: {
-    //     marginLeft: '0em',
-    // }
-
 }));
 
 const ExampleChart = () => {
@@ -87,107 +87,83 @@ const ExampleChart = () => {
 
                         return (
 
+                            <paper>
+                                <h3 style={{color: "white"}}>Graphs showing the scale of {countryAtTarget} towards {global} cases </h3>
+                                {/*<hr/>*/}
+                                <div className={classes.charts}>
+                                    <div className={classes.chartsFirstThree}>
+                                        <Chart
+                                            className={classes.chart1}
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart</div>}
+                                            data={[
+                                                ['Cases', countryAtTarget, global],
+                                                ['Total Confirmed', countryTotalConfirmed, totalConfirmed ],
 
-                            <div className={classes.charts}>
-                            <Chart
-                                className={classes.chart1}
-                                chartType="Bar"
-                                loader={<div>Loading Chart</div>}
-                                data={[
-                                    ['Cases', global, countryAtTarget],
-                                    ['Total Confirmed', totalConfirmed , countryTotalConfirmed],
-                                ]}
-                                options={{
-                                    chart: {
-                                        title: 'Global Cases vs South African Cases',
-                                    },
-                                }}
-                                // For tests
-                                rootProps={{ 'data-testid': '2' }}
-                            />
-                                <Chart
-                                    className={classes.chart2}
-                                    chartType="Bar"
-                                    loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Cases', global, countryAtTarget],
-                                        ['New Confirmed', newConfirmed, countryNewConfirmed],
-                                    ]}
-                                    options={{
-                                        chart: {
-                                            title: 'Global Cases vs South African Cases',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
+                                            ]}
+                                            // For tests
+                                            rootProps={{ 'data-testid': '2' }}
+                                        />
+                                        <Chart
+                                            className={classes.chart2}
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart</div>}
+                                            data={[
+                                                ['Cases', countryAtTarget, global],
+                                                ['New Confirmed',  countryNewConfirmed, newConfirmed],
 
-                                <Chart
-                                    className={classes.chart3}
-                                    chartType="Bar"
-                                    loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Cases', global, countryAtTarget],
-                                        ['Total Deaths', totalDeaths, countryTotalDeaths],
-                                    ]}
-                                    options={{
-                                        chart: {
-                                            title: 'Global Cases vs South African Cases',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
-                                <Chart
-                                    className={classes.chart4}
-                                    chartType="Bar"
-                                    loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Cases', global, countryAtTarget],
-                                        ['New Deaths', newDeaths, countryNewDeaths],
-                                    ]}
-                                    options={{
-                                        chart: {
-                                            title: 'Global Cases vs South African Cases',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
-                                <Chart
-                                    className={classes.chart5}
-                                    chartType="Bar"
-                                    loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Cases', global, countryAtTarget],
-                                        ['Total Recovered', totalRecovered, countryTotalRecovered],
-                                    ]}
-                                    options={{
-                                        chart: {
-                                            title: 'Global Cases vs South African Cases',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
-                                <Chart
-                                    className={classes.chart6}
-                                    chartType="Bar"
-                                    loader={<div>Loading Chart</div>}
-                                    data={[
-                                        ['Cases', global, countryAtTarget],
-                                        ['New Recovered', newRecovered, countryNewRecovered],
-                                    ]}
-                                    options={{
-                                        chart: {
-                                            title: 'Global Cases vs South African Cases',
-                                        },
-                                    }}
-                                    // For tests
-                                    rootProps={{ 'data-testid': '2' }}
-                                />
+                                            ]}
+                                            // For tests
+                                            rootProps={{ 'data-testid': '2' }}
+                                        />
 
-                            </div>
+                                        <Chart
+                                            className={classes.chart3}
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart</div>}
+                                            data={[
+                                                ['Cases',countryAtTarget, global],
+                                                ['Total Deaths',countryTotalDeaths, totalDeaths],
+                                            ]}
+                                            // For tests
+                                            rootProps={{ 'data-testid': '2' }}
+                                        />
+                                    </div>
+                                    <div className={classes.chartsSecondThree}>
+                                        <Chart
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart</div>}
+                                            data={[
+                                                ['Cases', countryAtTarget,  global],
+                                                ['New Deaths', countryNewDeaths,  newDeaths],
+                                            ]}
+                                            // For tests
+                                            rootProps={{ 'data-testid': '2' }}
+                                        />
+                                        <Chart
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart</div>}
+                                            data={[
+                                                ['Cases', countryAtTarget, global],
+                                                ['Total Recovered', countryTotalRecovered, totalRecovered],
+                                            ]}
+                                            // For tests
+                                            rootProps={{ 'data-testid': '2' }}
+                                        />
+                                        <Chart
+                                            chartType="Bar"
+                                            loader={<div>Loading Chart</div>}
+                                            data={[
+                                                ['Cases', countryAtTarget,  global],
+                                                ['New Recovered', countryNewRecovered, newRecovered],
+                                            ]}
+                                            // For tests
+                                            rootProps={{ 'data-testid': '2' }}
+                                        />
+                                    </div>
+                                </div>
+                            </paper>
+
                         )
 
                     }

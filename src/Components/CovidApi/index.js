@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme) =>({
         borderRadius: '40px',
     },
     paper: {
-        fontSize: '0.5em',
-        backgroundColor: 'grey',
+        fontSize: '0.6em',
         display: 'flex',
         '& > *': {
             margin: theme.spacing(5),
@@ -24,15 +23,12 @@ const useStyles = makeStyles((theme) =>({
     },
     leftPaper: {
         borderRadius: '30px',
-        marginLeft: '10em',
+        marginLeft: '35em',
         backgroundColor: 'darkgrey',
     },
     rightPaper: {
         borderRadius: '30px',
         backgroundColor: 'darkgrey',
-    },
-    h2: {
-        color: 'black',
     },
 }));
 
@@ -59,48 +55,52 @@ const Data = () => {
                     return (<div>Loading...</div>)
                 }
                 else if(response !== null) {
+                    const countryAtTarget = ((JSON.stringify(response.data.Countries[205].Country)).toUpperCase()).slice(1, -1);
+                    const global = "GLOBAL";
                     return (
-                        <div className={classes.paper} >
-                            {/*<h2>Date*/}
-                            {/*    {JSON.stringify(response.data.Countries[205].Date).slice(1,-1)} <hr/>*/}
-                            {/*</h2>*/}
-                            <Paper className={classes.leftPaper} >
-                                <h2 className={classes.h2} >GLOBAL</h2> <hr/>
-                                <h4 style={{color:"red"}} >New Confirmed Cases</h4>
-                                {JSON.stringify(response.data.Global.NewConfirmed)} <hr/>
-                                <h4>Total Confirmed </h4>
-                                {JSON.stringify(response.data.Global.TotalConfirmed)} <hr/>
-                                <h4>New Deaths</h4>
-                                {JSON.stringify(response.data.Global.NewDeaths)} <hr/>
-                                <h4>Total Deaths</h4>
-                                {JSON.stringify(response.data.Global.TotalDeaths)} <hr/>
-                                <h4>New Recovered</h4>
-                                {JSON.stringify(response.data.Global.NewRecovered)} <hr/>
-                                <h4>Total Recovered </h4>
-                                {JSON.stringify(response.data.Global.TotalRecovered)} <hr/>
-                            </Paper>
+                        <div>
+                            <h3 style={{color: "white"}} >Table showing details of cases in {countryAtTarget} and {global} cases</h3>
+                            <div className={classes.paper} >
 
-                            <Paper className={classes.rightPaper}>
-                                <h2 className={classes.h2} >
-                                    {((JSON.stringify(response.data.Countries[205].Country)).toUpperCase()).slice(1, -1)} {"\n"}
-                                    ( {JSON.stringify(response.data.Countries[205].CountryCode).slice(1, -1)} )
-                                </h2>
-                                 <hr/>
-                                <h4 style={{color:"red"}} >Latest Confirmed</h4>
-                                {JSON.stringify(response.data.Countries[205].NewConfirmed)} <hr/>
-                                <h4>Total Confirmed</h4>
-                                {JSON.stringify(response.data.Countries[205].TotalConfirmed)} <hr/>
-                                <h4>New Deaths</h4>
-                                {JSON.stringify(response.data.Countries[205].NewDeaths)} <hr/>
-                                <h4>Total Deaths</h4>
-                                {JSON.stringify(response.data.Countries[205].TotalDeaths)} <hr/>
-                                <h4>New Recovered</h4>
-                                {JSON.stringify(response.data.Countries[205].NewRecovered)} <hr/>
-                                <h4>Total Recovered</h4>
-                                {JSON.stringify(response.data.Countries[205].TotalRecovered)} <hr/>
-                            </Paper>
+                                <Paper className={classes.leftPaper} >
+                                    <h2 className={classes.h2} >GLOBAL</h2> <hr/>
+                                    <h4 style={{color:"red"}} >New Confirmed Cases</h4>
+                                    {JSON.stringify(response.data.Global.NewConfirmed)} <hr/>
+                                    <h4>Total Confirmed </h4>
+                                    {JSON.stringify(response.data.Global.TotalConfirmed)} <hr/>
+                                    <h4>New Deaths</h4>
+                                    {JSON.stringify(response.data.Global.NewDeaths)} <hr/>
+                                    <h4>Total Deaths</h4>
+                                    {JSON.stringify(response.data.Global.TotalDeaths)} <hr/>
+                                    <h4>New Recovered</h4>
+                                    {JSON.stringify(response.data.Global.NewRecovered)} <hr/>
+                                    <h4>Total Recovered </h4>
+                                    {JSON.stringify(response.data.Global.TotalRecovered)}
+                                </Paper>
 
+                                <Paper className={classes.rightPaper}>
+                                    <h2 className={classes.h2} >
+                                        {((JSON.stringify(response.data.Countries[205].Country)).toUpperCase()).slice(1, -1)} {"\n"}
+                                        ( {JSON.stringify(response.data.Countries[205].CountryCode).slice(1, -1)} )
+                                    </h2>
+                                    <hr/>
+                                    <h4 style={{color:"red"}} >Latest Confirmed</h4>
+                                    {JSON.stringify(response.data.Countries[205].NewConfirmed)} <hr/>
+                                    <h4>Total Confirmed</h4>
+                                    {JSON.stringify(response.data.Countries[205].TotalConfirmed)} <hr/>
+                                    <h4>New Deaths</h4>
+                                    {JSON.stringify(response.data.Countries[205].NewDeaths)} <hr/>
+                                    <h4>Total Deaths</h4>
+                                    {JSON.stringify(response.data.Countries[205].TotalDeaths)} <hr/>
+                                    <h4>New Recovered</h4>
+                                    {JSON.stringify(response.data.Countries[205].NewRecovered)} <hr/>
+                                    <h4>Total Recovered</h4>
+                                    {JSON.stringify(response.data.Countries[205].TotalRecovered)}
+                                </Paper>
+
+                            </div>
                         </div>
+
                     )
                     // return (<div>{response.data} <button onClick={() => makeRequest({ params: { refresh: true } })}>Refresh</button></div>)
                 }
