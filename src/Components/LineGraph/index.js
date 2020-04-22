@@ -12,7 +12,9 @@ const useStyles = makeStyles((theme) =>({
         border: '1px solid darkorange',
         borderRadius: '40px',
     },
-
+    lineGraph: {
+        width: '20em',
+    },
 }));
 
 
@@ -43,10 +45,8 @@ const LineGraph = () => {
                         // console.log(response.data[index - 1].total)
                         // select the last element and push it into a new storage
                         // use the storage to pull the specific data
-                        var index = response.data.length;
-                        for( var i in response.data) {
-                            console.log(response.data[index - 1].provinces)
-                        }
+                        const index = response.data.length;
+
                         const Provinces = {
                             free_state: parseInt(response.data[index - 1].provinces.free_state),
                             gauteng: parseInt(response.data[index - 1].provinces.gauteng),
@@ -62,8 +62,7 @@ const LineGraph = () => {
 
                         return (
 
-                            <Paper>
-                                <h3 style={{color: "white"}}>Graphs showing the ..... </h3>
+                            <Paper className={classes.lineGraph}>
                                 {/*<hr/>*/}
                                 <div className={classes.charts}>
                                     <Chart

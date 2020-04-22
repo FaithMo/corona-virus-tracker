@@ -55,7 +55,17 @@ const Data = () => {
                     return (<div>Loading...</div>)
                 }
                 else if(response !== null) {
-                    const countryAtTarget = ((JSON.stringify(response.data.Countries[205].Country)).toUpperCase()).slice(1, -1);
+                    // console.log(response.data.Countries[204].Country)
+
+                    // for(var i in response.data.Countries){
+                    //     if(Object.values(response.data.Countries[i]).includes( "South Africa")){
+                    //         // console.log(JSON.stringify(response.data.Contries[i].Country))
+                    //         console.log(i)
+                    //         console.log(response.data.findIndex(i))
+                    //     }
+                    // }
+
+                    const countryAtTarget = ((JSON.stringify(response.data.Countries[204].Country)).toUpperCase()).slice(1, -1);
                     const global = "GLOBAL";
                     return (
                         <div>

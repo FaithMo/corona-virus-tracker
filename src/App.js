@@ -15,12 +15,12 @@ function App() {
         <Route path="/">
             <Header />
         </Route>
-        {/*<Route path="/">*/}
-        {/*    <CovidApi />*/}
-        {/*</Route>*/}
-        {/*<Route path="/">*/}
-        {/*    <Graph />*/}
-        {/*</Route>*/}
+        <Route path="/">
+            <CovidApi />
+        </Route>
+        <Route path="/">
+            <Graph />
+        </Route>
         <Route path="/">
             <LineGraph/>
         </Route>
