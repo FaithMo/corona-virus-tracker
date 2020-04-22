@@ -1,7 +1,8 @@
-## Corona Virus Tracker
+## Corona Virus Tracker For SOUTH AFRICA
+using React 😻
 
-This project is tracking and displaying the latest covid-19 (corona virus). 
-It specifically has the global results and South African results.
+This project is tracking and displaying the latest covid-19 (corona virus) results. 
+
 ------------------------------------------------------------------------------
 
 In the project directory, you can run:  <br />
