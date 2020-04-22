@@ -41,31 +41,10 @@ const LineGraph = () => {
                     else if(response !== null) {
                         //TRUSTED DATA
                         // console.log(response.data[index - 1].total)
-
-
-                        // console.log(response.data)
-                        //     console.log(response.data)
-                        // response.data.map((i) => {
-                        //     // if(i.date instanceof Date) {
-                        //     //      console.log(Math.max(i.total))
-                        //     console.log(i)
-                        //     // }else {
-                        //     //     console.log('no new date')
-                        //     // }
-                        //     //console.log(i.date[0] instanceof Date)
-                        //
-                        // })
                         // select the last element and push it into a new storage
                         // use the storage to pull the specific data
                         var index = response.data.length;
-                        // console.log(index)
                         for( var i in response.data) {
-                            // if(response.data.provinces[i] == "Gauteng" ) {
-                            //     console.log(response.data.provinces[i])
-                            // }else {
-                            //     console.log('no new date')
-                            // }
-                            // console.log(Math.max(response.data[0]))
                             console.log(response.data[index - 1].provinces)
                         }
                         const Provinces = {
@@ -80,6 +59,7 @@ const LineGraph = () => {
                             mpumalanga: parseInt(response.data[index - 1].provinces.mpumlanga),
                             unknown: parseInt(response.data[index - 1].provinces.unknown),
                         }
+
                         return (
 
                             <Paper>
@@ -103,7 +83,6 @@ const LineGraph = () => {
                                             ['North-West', Provinces.north_west],
                                             ['unknown', Provinces.unknown],
                                             ['Northen-Cape',  Provinces.northern_cape],
-
                                         ]}
                                         options={{
                                             hAxis: {
@@ -118,12 +97,9 @@ const LineGraph = () => {
                                         }}
                                         rootProps={{ 'data-testid': '2' }}
                                     />
-
                                 </div>
                             </Paper>
-
                         )
-
                     }
                     return (<div>The request has not been made as yet.</div>)
                 }}
