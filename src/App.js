@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './Components/Header';
 import CovidApi from './Components/CovidApi';
 import Graph from './Components/Graph';
+import LineGraph from './Components/LineGraph';
 import Footer from './Components/Footer';
 
 function App() {
@@ -14,11 +15,14 @@ function App() {
         <Route path="/">
             <Header />
         </Route>
+        {/*<Route path="/">*/}
+        {/*    <CovidApi />*/}
+        {/*</Route>*/}
+        {/*<Route path="/">*/}
+        {/*    <Graph />*/}
+        {/*</Route>*/}
         <Route path="/">
-            <CovidApi />
-        </Route>
-        <Route path="/">
-            <Graph />
+            <LineGraph/>
         </Route>
         {/*<Route path="/">*/}
         {/*    <Footer />*/}

@@ -4,7 +4,6 @@
 import * as React from "react";
 import { Chart } from "react-google-charts";
 import {Get} from "react-axios";
-import Paper from "@material-ui/core/Paper";
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) =>({
