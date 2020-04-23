@@ -40,6 +40,7 @@ const Data = () => {
     <div >
         <Get url='https://api.covid19api.com/summary'>
             {(error, response, isLoading, makeRequest) => {
+
                 if(error) {
                     return (
                         <div className={classes.network}>
@@ -56,16 +57,16 @@ const Data = () => {
                 }
                 else if(response !== null) {
                     // console.log(response.data.Countries[204].Country)
-
-                    // for(var i in response.data.Countries){
-                    //     if(Object.values(response.data.Countries[i]).includes( "South Africa")){
-                    //         // console.log(JSON.stringify(response.data.Contries[i].Country))
-                    //         console.log(i)
-                    //         console.log(response.data.findIndex(i))
-                    //     }
-                    // }
-
-                    const countryAtTarget = ((JSON.stringify(response.data.Countries[204].Country)).toUpperCase()).slice(1, -1);
+                    var countryAtTarget;
+                    var countryData;
+                    for(var i in response.data.Countries){
+                        if(Object.values(response.data.Countries[i]).includes( "South Africa")){
+                            countryData = response.data.Countries[i];
+                            countryAtTarget = ((JSON.stringify(response.data.Countries[i].Country)).toUpperCase()).slice(1, -1);
+                            console.log(countryAtTarget);
+                            console.log(countryData);
+                        }
+                    }
                     const global = "GLOBAL";
                     return (
                         <div>
@@ -89,23 +90,20 @@ const Data = () => {
                                 </Paper>
 
                                 <Paper className={classes.rightPaper}>
-                                    <h2 className={classes.h2} >
-                                        {((JSON.stringify(response.data.Countries[205].Country)).toUpperCase()).slice(1, -1)} {"\n"}
-                                        ( {JSON.stringify(response.data.Countries[205].CountryCode).slice(1, -1)} )
-                                    </h2>
+                                    <h2 className={classes.h2} > {countryAtTarget} </h2>
                                     <hr/>
                                     <h4 style={{color:"red"}} >Latest Confirmed</h4>
-                                    {JSON.stringify(response.data.Countries[205].NewConfirmed)} <hr/>
+                                    {JSON.stringify(countryData.NewConfirmed)} <hr/>
                                     <h4>Total Confirmed</h4>
-                                    {JSON.stringify(response.data.Countries[205].TotalConfirmed)} <hr/>
+                                    {JSON.stringify(countryData.TotalConfirmed)} <hr/>
                                     <h4>New Deaths</h4>
-                                    {JSON.stringify(response.data.Countries[205].NewDeaths)} <hr/>
+                                    {JSON.stringify(countryData.NewDeaths)} <hr/>
                                     <h4>Total Deaths</h4>
-                                    {JSON.stringify(response.data.Countries[205].TotalDeaths)} <hr/>
+                                    {JSON.stringify(countryData.TotalDeaths)} <hr/>
                                     <h4>New Recovered</h4>
-                                    {JSON.stringify(response.data.Countries[205].NewRecovered)} <hr/>
+                                    {JSON.stringify(countryData.NewRecovered)} <hr/>
                                     <h4>Total Recovered</h4>
-                                    {JSON.stringify(response.data.Countries[205].TotalRecovered)}
+                                    {JSON.stringify(countryData.TotalRecovered)}
                                 </Paper>
 
                             </div>
