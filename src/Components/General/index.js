@@ -55,7 +55,6 @@ const General = () => {
                         return (<div>Loading...</div>)
                     }
                     else if(response !== null) {
-                        var countryAtTarget;
                         var countryData;
 
                         for(var i in response.data.Countries){
