@@ -3,6 +3,8 @@ import { Get } from 'react-axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
+import LineGraph from '../LineGraph';
+
 
 const useStyles = makeStyles((theme) =>({
     network: {
@@ -13,21 +15,21 @@ const useStyles = makeStyles((theme) =>({
         borderRadius: '40px',
     },
     paper: {
-        fontSize: '0.6em',
+        fontSize: '0.5em',
         display: 'flex',
         '& > *': {
-            margin: theme.spacing(5),
-            width: theme.spacing(40),
-            height: theme.spacing(54),
+            margin: theme.spacing(2),
+            width: theme.spacing(30),
+            height: theme.spacing(48),
         },
     },
     leftPaper: {
-        borderRadius: '30px',
-        marginLeft: '35em',
+        // borderRadius: '30px',
+        marginLeft: '17em',
         backgroundColor: 'darkgrey',
     },
     rightPaper: {
-        borderRadius: '30px',
+        // borderRadius: '30px',
         backgroundColor: 'darkgrey',
     },
 }));
@@ -69,44 +71,50 @@ const Data = () => {
                     }
                     const global = "GLOBAL";
                     return (
-                        <div>
+                        <div >
                             <h3 style={{color: "white"}} >Table showing details of cases in {countryAtTarget} and {global} cases</h3>
-                            <div className={classes.paper} >
+                            <div style={{display:'flex', flexDirection:'row', marginTop: '6em'}} >
+                                <div className={classes.paper} >
 
-                                <Paper className={classes.leftPaper} >
-                                    <h2 className={classes.h2} >GLOBAL</h2> <hr/>
-                                    <h4 style={{color:"red"}} >New Confirmed Cases</h4>
-                                    {JSON.stringify(response.data.Global.NewConfirmed)} <hr/>
-                                    <h4>Total Confirmed </h4>
-                                    {JSON.stringify(response.data.Global.TotalConfirmed)} <hr/>
-                                    <h4>New Deaths</h4>
-                                    {JSON.stringify(response.data.Global.NewDeaths)} <hr/>
-                                    <h4>Total Deaths</h4>
-                                    {JSON.stringify(response.data.Global.TotalDeaths)} <hr/>
-                                    <h4>New Recovered</h4>
-                                    {JSON.stringify(response.data.Global.NewRecovered)} <hr/>
-                                    <h4>Total Recovered </h4>
-                                    {JSON.stringify(response.data.Global.TotalRecovered)}
-                                </Paper>
+                                    <Paper className={classes.leftPaper} >
+                                        <h2 className={classes.h2} >GLOBAL</h2> <hr/>
+                                        <h4 style={{color:"red"}} >New Confirmed Cases</h4>
+                                        {JSON.stringify(response.data.Global.NewConfirmed)} <hr/>
+                                        <h4>Total Confirmed </h4>
+                                        {JSON.stringify(response.data.Global.TotalConfirmed)} <hr/>
+                                        <h4>New Deaths</h4>
+                                        {JSON.stringify(response.data.Global.NewDeaths)} <hr/>
+                                        <h4>Total Deaths</h4>
+                                        {JSON.stringify(response.data.Global.TotalDeaths)} <hr/>
+                                        <h4>New Recovered</h4>
+                                        {JSON.stringify(response.data.Global.NewRecovered)} <hr/>
+                                        <h4>Total Recovered </h4>
+                                        {JSON.stringify(response.data.Global.TotalRecovered)}
+                                    </Paper>
 
-                                <Paper className={classes.rightPaper}>
-                                    <h2 className={classes.h2} > {countryAtTarget} </h2>
-                                    <hr/>
-                                    <h4 style={{color:"red"}} >Latest Confirmed</h4>
-                                    {JSON.stringify(countryData.NewConfirmed)} <hr/>
-                                    <h4>Total Confirmed</h4>
-                                    {JSON.stringify(countryData.TotalConfirmed)} <hr/>
-                                    <h4>New Deaths</h4>
-                                    {JSON.stringify(countryData.NewDeaths)} <hr/>
-                                    <h4>Total Deaths</h4>
-                                    {JSON.stringify(countryData.TotalDeaths)} <hr/>
-                                    <h4>New Recovered</h4>
-                                    {JSON.stringify(countryData.NewRecovered)} <hr/>
-                                    <h4>Total Recovered</h4>
-                                    {JSON.stringify(countryData.TotalRecovered)}
-                                </Paper>
+                                    <Paper className={classes.rightPaper}>
+                                        <h2 className={classes.h2} > {countryAtTarget} </h2>
+                                        <hr/>
+                                        <h4 style={{color:"red"}} >Latest Confirmed</h4>
+                                        {JSON.stringify(countryData.NewConfirmed)} <hr/>
+                                        <h4>Total Confirmed</h4>
+                                        {JSON.stringify(countryData.TotalConfirmed)} <hr/>
+                                        <h4>New Deaths</h4>
+                                        {JSON.stringify(countryData.NewDeaths)} <hr/>
+                                        <h4>Total Deaths</h4>
+                                        {JSON.stringify(countryData.TotalDeaths)} <hr/>
+                                        <h4>New Recovered</h4>
+                                        {JSON.stringify(countryData.NewRecovered)} <hr/>
+                                        <h4>Total Recovered</h4>
+                                        {JSON.stringify(countryData.TotalRecovered)}
+                                    </Paper>
 
+                                </div>
+                                <div className={classes.newGraph}>
+                                    <LineGraph/>
+                                </div>
                             </div>
+
                         </div>
 
                     )

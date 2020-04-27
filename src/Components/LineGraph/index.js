@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) =>({
         borderRadius: '40px',
     },
     lineGraph: {
-        width: '20em',
+        width: '8em',
+
     },
 }));
 
@@ -67,7 +68,7 @@ const LineGraph = () => {
                                 <div className={classes.charts}>
                                     <Chart
                                         width={'600px'}
-                                        height={'400px'}
+                                        height={'23em'}
                                         chartType="LineChart"
                                         loader={<div>Loading Chart</div>}
                                         data={[
@@ -93,7 +94,15 @@ const LineGraph = () => {
                                             series: {
                                                 1: { curveType: 'function' },
                                             },
+                                            animation: {
+                                                startup: true,
+                                                easing: 'linear',
+                                                duration: 1000,
+                                            },
+                                            enableInteractivity: false
                                         }}
+
+
                                         rootProps={{ 'data-testid': '2' }}
                                     />
                                 </div>

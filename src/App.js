@@ -7,6 +7,7 @@ import CovidApi from './Components/CovidApi';
 import Graph from './Components/Graph';
 import LineGraph from './Components/LineGraph';
 import Footer from './Components/Footer';
+import TestsConductedGraph from './Components/TestsConductedGraph';
 
 function App() {
   return (
@@ -15,18 +16,21 @@ function App() {
         <Route path="/">
             <Header />
         </Route>
-        <Route path="/">
-            <CovidApi />
-        </Route>
-        <Route path="/">
-            <Graph />
-        </Route>
-        <Route path="/">
-            <LineGraph/>
-        </Route>
         {/*<Route path="/">*/}
-        {/*    <Footer />*/}
+        {/*    <CovidApi />*/}
         {/*</Route>*/}
+
+        {/*<Route path="/">*/}
+        {/*    <Graph />*/}
+        {/*</Route>*/}
+
+        {/*<Route path="/">*/}
+        {/*    <LineGraph/>*/}
+        {/*</Route>*/}
+
+        <Route path="/">
+            <TestsConductedGraph />
+        </Route>
     </Router>
 
           {/*<Header/>*/}
