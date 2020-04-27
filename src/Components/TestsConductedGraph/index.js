@@ -44,40 +44,58 @@ const LineGraph = () => {
                     else if(response !== null) {
 
                         const index = response.data.length;
-                        console.log(index)
+                        // console.log(index)
                        console.log(response.data[index -1].cumulative_tests)
                         const Tests = {
                             tests: response.data[index-1].cumulative_tests,
                             dead: response.data[index - 1].deaths,
+                            critical: response.data[index -1].critical_icu,
+                            hospitalised: response.data[index - 1].hospitalisation,
+                            recovered: response.data[index - 1].recovered,
                         }
-                        console.log(Tests.dead)
+                        console.log(response.data[index -1] )
 
 
                         return (
 
                             <div>
                                 <Chart
-                                    width={'500px'}
-                                    height={'300px'}
-                                    chartType="AreaChart"
+                                    width={'600px'}
+                                    height={'23em'}
+                                    chartType="BarChart"
                                     loader={<div>Loading Chart</div>}
                                     data={[
-                                        ['Style', 'Critical', 'Hospitalised', 'Dead', 'Tests'],
-                                        ['//Start - march', 5.2, 3.6, Tests.dead, 700],
-                                        ['Mid - March', 5.6, 4.0, 2.8, 3],
-                                        ['End - March', 7.2, 2.2, 2.2, 6.0],
-                                        ['April', 8.0, 1.7, 0.8, 4.0],
+                                        [
+                                            'Element',
+                                            'Cases',
+                                            { role: 'style' },
+                                            {
+                                                sourceColumn: 0,
+                                                role: 'annotation',
+
+                                            },
+                                        ],
+                                        // ['Tests Conducted', parseInt(Tests.tests), 'color: #e5e4e2', null],
+                                        ['Hospitalised', parseInt(Tests.hospitalised), '#1c8283', null],
+                                        ['Critical', parseInt(Tests.critical), 'silver', null],
+                                        ['Deaths', parseInt(Tests.dead), '#77837f', null],
+                                        ['Recovered', parseInt(Tests.recovered), '#e5e4e2', null],
+
                                     ]}
                                     options={{
-                                        isStacked: 'relative',
-                                        height: 360,
-                                        legend: { position: 'top', maxLines: 3 },
-                                        vAxis: {
-                                            minValue: 0,
-                                            ticks: [100, 300, 600, 900, 1200, 1500],
+                                        title: `Latest tests conducted: ${Tests.tests}`,
+                                        width: 450,
+                                        height: 305,
+                                        bar: { groupWidth: '95%' },
+                                        legend: { position: 'none' },
+                                        animation: {
+                                            startup: true,
+                                            easing: 'linear',
+                                            duration: 1000,
                                         },
                                     }}
-                                    rootProps={{ 'data-testid': '2' }}
+                                    // For tests
+                                    rootProps={{ 'data-testid': '6' }}
                                 />
                             </div>
                         )

@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from './Components/Header';
+import General from './Components/General';
 import CovidApi from './Components/CovidApi';
 import Graph from './Components/Graph';
 import LineGraph from './Components/LineGraph';
@@ -16,9 +17,13 @@ function App() {
         <Route path="/">
             <Header />
         </Route>
-        {/*<Route path="/">*/}
-        {/*    <CovidApi />*/}
-        {/*</Route>*/}
+
+        <Route path="/">
+            <General/>
+        </Route>
+        <Route path="/">
+            <CovidApi />
+        </Route>
 
         {/*<Route path="/">*/}
         {/*    <Graph />*/}
@@ -28,9 +33,9 @@ function App() {
         {/*    <LineGraph/>*/}
         {/*</Route>*/}
 
-        <Route path="/">
-            <TestsConductedGraph />
-        </Route>
+        {/*<Route path="/">*/}
+        {/*    <TestsConductedGraph />*/}
+        {/*</Route>*/}
     </Router>
 
           {/*<Header/>*/}

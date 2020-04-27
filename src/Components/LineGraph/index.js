@@ -85,6 +85,8 @@ const LineGraph = () => {
                                             ['Northen-Cape',  Provinces.northern_cape],
                                         ]}
                                         options={{
+                                            width: 450,
+                                            height: 300,
                                             hAxis: {
                                                 title: 'Provinces',
                                             },
