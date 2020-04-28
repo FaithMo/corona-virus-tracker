@@ -2,6 +2,9 @@ import React from 'react';
 import { Chart } from "react-google-charts";
 import {Get} from "react-axios";
 import {makeStyles} from "@material-ui/core/styles";
+import Mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
+
+
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) =>({
@@ -22,6 +25,11 @@ const useStyles = makeStyles((theme) =>({
 const LineGraph = () => {
 
     const classes = useStyles();
+
+
+
+    // var Land = new Mapboxgl.MercatorCoordinate(0.5, 0.5, 0);
+    // var countryAtTarget = new Mapboxgl.LngLat(2739503.093741, -3430902.289809);
 
     return (
         <div>
@@ -53,31 +61,39 @@ const LineGraph = () => {
                             hospitalised: response.data[index - 1].hospitalisation,
                             recovered: response.data[index - 1].recovered,
                         }
-                        console.log(response.data[index -1] )
+                        console.log(response.data[index -1] );
+
 
 
                         return (
 
-                            <div>
-                                <Chart
-                                    width={'500px'}
-                                    height={'300px'}
-                                    chartType="GeoChart"
-                                    data={[
-                                        ['Country', 'Cases'],
-                                        ['Gauteng', 200],
-                                        ['Western Cape', 300],
-                                        ['Kwazulu Natal', 400],
-                                        ['Western Cape', 500],
-                                        ['Limpopo', 600],
-                                        ['Mpumalanga', 700],
-                                    ]}
-                                    // Note: you will need to get a mapsApiKey for your project.
-                                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-                                    mapsApiKey="AIzaSyCNHKD8afFhPtZ0P4wAdvtfVK4zYN9Iw58"
-                                    rootProps={{ 'data-testid': '1' }}
-                                />
+                            <div style={{width: '30em'}}>
+                                weellllllll......
                             </div>
+
+
+
+
+                            // <div>
+                            //     <Chart
+                            //         width={'500px'}
+                            //         height={'300px'}
+                            //         chartType="GeoChart"
+                            //         data={[
+                            //             ['Country', 'Cases'],
+                            //             ['Gauteng', 200],
+                            //             ['Western Cape', 300],
+                            //             ['Kwazulu Natal', 400],
+                            //             ['Western Cape', 500],
+                            //             ['Limpopo', 600],
+                            //             ['Mpumalanga', 700],
+                            //         ]}
+                            //         // Note: you will need to get a mapsApiKey for your project.
+                            //         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+                            //         mapsApiKey="AIzaSyCNHKD8afFhPtZ0P4wAdvtfVK4zYN9Iw58"
+                            //         rootProps={{ 'data-testid': '1' }}
+                            //     />
+                            // </div>
                         )
                     }
                     return (<div>The request has not been made as yet.</div>)
